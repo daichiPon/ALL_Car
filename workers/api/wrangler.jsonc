@@ -1,0 +1,14 @@
+{
+  // All Car REST API（README 8章・10章）
+  // D1 (allcar-db) から車・メーカー・ニュース・コメントを配信する。
+  "name": "allcar-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-01",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "allcar-db",
+      "database_id": "fca7cb9d-328c-42fb-a156-66977cf62f63"
+    }
+  ]
+}

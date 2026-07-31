@@ -1,0 +1,34 @@
+{
+  // All Car トーク用バックエンド（README 8章・10章）
+  // 部屋（room）ごとに Durable Object を割り当てて WebSocket を捌く。
+  "name": "allcar-chat",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-01",
+  // APNs 設定（非シークレット）。シークレットは `wrangler secret put` で登録:
+  //   APNS_TEAM_ID / APNS_KEY_ID / APNS_PRIVATE_KEY (.p8 の中身)
+  "vars": {
+    "APNS_ENV": "sandbox",
+    "APNS_TOPIC": "com.allcar.AllCar"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "allcar-db",
+      "database_id": "fca7cb9d-328c-42fb-a156-66977cf62f63"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "CHAT_ROOM",
+        "class_name": "ChatRoom"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["ChatRoom"]
+    }
+  ]
+}
